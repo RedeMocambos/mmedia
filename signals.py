@@ -6,14 +6,22 @@ from gitannex.signals import filesync_done
 from gitannex.models import GitAnnexRepository
 
 import os
-# Listen to signals /aka plugin to gitannex
+
+"""
+Arquivo de definição dos sinais.
+
+Os sinais são usados para interligar diferentes *apps* do Django. 
+"""
+
 
 @receiver(filesync_done, sender=GitAnnexRepository)
 def syncGitAnnexRepository(sender, **kwargs):
-    print ">>> DESERIALIZING"
+    """Inicia a sincronização do repositorio git annex."""
     createObjectsFromFiles(os.path.join(settings.MEDIA_ROOT, settings.GITANNEX_DIR, sender.repositoryURLOrPath))
 
 def createObjectsFromFiles(pathToFiles):
+    """Recria os objetos no Django a partir dos objetos serializados em XML."""
+    print ">>> DESERIALIZING"
     for root, dirs, files in os.walk(pathToFiles):
         for file in files:
             if file.endswith('.xml'):
