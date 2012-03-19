@@ -9,8 +9,9 @@
         |    "Vamos fazer um mundo digital mais do nosso jeito..."   
 ______/~~~\________________________________________________________________ _ _ _
        /
-      MMEDIA
+      MMEDIA                                  Software Livre! GPLv3
 
-Aplicação Django para gerir arquivos multimediais. 
-Trabalha junto a aplicação gitannex (https://github.com/20/gitannex)
-para o sync dos arquivos entre instalações django. 
+Aplicacao Django para gerir arquivos multimediais. 
+
+Trabalha junto a aplicacao gitannex (https://github.com/RedeMocambos/gitannex)
+para o sync dos arquivos entre instalacoes django. 
