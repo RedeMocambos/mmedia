@@ -18,12 +18,7 @@ def createObjectsFromFiles(pathToFiles):
         for file in files:
             if file.endswith('.xml'):
                 xmlIn = open(os.path.join(root, file), "r")
-                # XMLSerializer = serializers.get_serializer("xml")
-                # xml_serializer = XMLSerializer()
-                # for obj in xml_serializer.deserialize("xml", xmlIn):
-                #     obj.id = None
-                #     obj.pk = None
-                #     obj.save()
+
                 for obj in serializers.deserialize("xml", xmlIn):
                     obj.id = None
                     obj.pk = None
