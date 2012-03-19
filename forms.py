@@ -2,7 +2,7 @@ form django import forms
 from mmedia.models import MMedia
 
 """
-Arquivo com as definições dos forms da aplicação Django.
+Arquivo com as definicoes dos forms da aplicacao Django.
 """
 
 class MMediaForm(forms.Form):

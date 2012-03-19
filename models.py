@@ -8,21 +8,21 @@ import os
 import logging
 
 """
-Modelos da aplicação Django. 
+Modelos da aplicacao Django. 
 
-Neste arquivo são definidos os modelos de dados da aplicação *mmedia*.
+Neste arquivo sao definidos os modelos de dados da aplicacao *mmedia*.
 """
 
 
 logger = logging.getLogger(__name__)
 
 def _path(instance):
-    """Constroe o caminho (path) do arquivo relativo a um objeto *mmedia*, retorna o caminho (path) do arquivo ."""
+    """Constroe o caminho (path) do arquivo relativo a um objeto *mmedia*, retorna o caminho (path) do arquivo."""
     return os.path.join(settings.MEDIA_ROOT, instance.user.username, \
                             instance.filename)
 
 def _path_to_upload(instance, filename):
-    """Constroe o caminho (path) para armazenar o arquivo relativo a um objeto *mmedia*, retorna o caminho (path) para armazenar o arquivo ."""
+    """Constroe o caminho (path) para armazenar o arquivo relativo a um objeto *mmedia*, retorna o caminho (path) para armazenar o arquivo."""
     # TODO: Next release should manage gin annex directory dynamically
     return os.path.join(settings.GITANNEX_DIR, settings.PORTAL_NAME, instance.author.username, instance.mediatype, filename)
 
@@ -36,9 +36,9 @@ class MMedia(models.Model):
     
     Atributos:
         title: nome do conteudo multimedial
-        description: descrição do conteudo multimedial
-        author: chave externa (agregação) para objeto *User*
-        date: data de publicação
+        description: descricao do conteudo multimedial
+        author: chave externa (agregacao) para objeto *User*
+        date: data de publicacao
         fileref: apontador para o arquivo no disco (objeto FileField)
         mediatype: etiqueta para definir o tipo de conteudo
     """
@@ -55,7 +55,7 @@ class MMedia(models.Model):
 #    tags = TagField(verbose_name=_('tags'), help_text=tagfield_help_text)
 
     def path(self):
-        """Constroe o caminho (path) absoluto do arquivo do objeto , retorna o caminho (path) absoluto do arquivo em disco do objeto."""
+        """Constroe o caminho (path) absoluto do arquivo do objeto, retorna o caminho (path) absoluto do arquivo em disco do objeto."""
         return os.path.join(settings.MEDIA_ROOT, settings.GITANNEX_DIR, settings.PORTAL_NAME, self.author.username, self.mediatype, \
                                 self.fileref.path)
 
@@ -71,7 +71,7 @@ class MMedia(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        """Sobrescreve (override) a função generica *save()* incluindo a serialização do objeto.
+        """Sobrescreve (override) a funcao generica *save()* incluindo a serializacao do objeto.
         
         Serializa o objeto em XML na pasta /MEDIA_ROOT/GITANNEX_DIR/PORTAL_NAME/SERIALIZED_DIR/
         """

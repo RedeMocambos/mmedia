@@ -2,7 +2,7 @@ from mmedia.models import Video, Audio, Image
 from django.contrib import admin
 
 """
-Arquivo de configuração e customização da interface administrativa do Django.
+Arquivo de configuracao e customizacao da interface administrativa do Django.
 """
 
 admin.site.register(Audio)

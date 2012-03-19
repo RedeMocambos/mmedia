@@ -8,15 +8,15 @@ from gitannex.models import GitAnnexRepository
 import os
 
 """
-Arquivo de definição dos sinais.
+Arquivo de definicao dos sinais.
 
-Os sinais são usados para interligar diferentes *apps* do Django. 
+Os sinais sao usados para interligar diferentes *apps* do Django. 
 """
 
 
 @receiver(filesync_done, sender=GitAnnexRepository)
 def syncGitAnnexRepository(sender, **kwargs):
-    """Inicia a sincronização do repositorio git annex."""
+    """Inicia a sincronizacao do repositorio git annex."""
     createObjectsFromFiles(os.path.join(settings.MEDIA_ROOT, settings.GITANNEX_DIR, sender.repositoryURLOrPath))
 
 def createObjectsFromFiles(pathToFiles):

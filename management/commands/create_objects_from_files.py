@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from mmedia.signals import createObjectsFromFiles
 
 """
-Definições do comando para recriar objetos no Django a partir de objetos serializados em XML.
+Definicoes do comando para recriar objetos no Django a partir de objetos serializados em XML.
 """
 
 class Command(BaseCommand):
